@@ -58,6 +58,13 @@ namespace Gifter.Controllers
             return NoContent();
         }
 
+        [HttpGet("all-with-comments")] 
+        public IActionResult GetAllWithComments()
+        {
+            return Ok(_postRepository.GetAllWithComments());
+        }
+
+
         [HttpGet("search")]
         public IActionResult Search(string q, bool sortDesc)
         {
