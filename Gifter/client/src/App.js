@@ -4,11 +4,13 @@ import { PostProvider } from "./providers/PostProvider";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import Post from "./components/Post";
+import PostSearch from "./components/PostSearch";
 
 function App() {
   return (
     <div className="App">
       <PostProvider>
+        <PostSearch />
         <PostForm />
         <PostList />
       </PostProvider>
