@@ -57,5 +57,18 @@ namespace Gifter.Controllers
             _postRepository.Delete(id);
             return NoContent();
         }
+
+        [HttpGet("search")]
+        public IActionResult Search(string q, bool sortDesc)
+        {
+            return Ok(_postRepository.Search(q, sortDesc));
+        }
+
+        [HttpGet("hottest")]
+        public ActionResult GetHottestPosts(DateTime since)
+        {
+            var posts = _postRepository.Search(null, true, since);
+            return Ok(posts);
+        }
     }
 }
