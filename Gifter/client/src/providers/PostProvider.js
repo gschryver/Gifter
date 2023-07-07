@@ -11,6 +11,12 @@ export const PostProvider = (props) => {
       .then(setPosts);
   };
 
+  const getAllPostsWithComments = () => {
+    return fetch("/api/post/all-with-comments")
+      .then((res) => res.json())
+      .then(setPosts);
+  };
+
   const addPost = (post) => {
     return fetch("/api/post", {
       method: "POST",
@@ -21,8 +27,14 @@ export const PostProvider = (props) => {
     });
   };
 
+  const searchPosts = (query, sortDesc) => {
+    return fetch(`/api/post/search?q=${query}&sortDesc=${sortDesc}`)
+      .then((res) => res.json())
+      .then(setPosts);
+  }
+
   return (
-    <PostContext.Provider value={{ posts, getAllPosts, addPost }}>
+    <PostContext.Provider value={{ posts, getAllPosts, addPost, searchPosts, getAllPostsWithComments }}>
       {props.children}
     </PostContext.Provider>
   );
