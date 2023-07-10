@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { PostContext } from "../providers/PostProvider";
+import { useNavigate } from "react-router-dom";
 
 const PostForm = () => {
   const { addPost, getAllPosts } = React.useContext(PostContext);
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [caption, setCaption] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ const PostForm = () => {
         setImageUrl("");
         setCaption("");
 
-        getAllPosts();
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error adding post:", error);
