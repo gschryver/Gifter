@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate} from "react-router-dom";
 import PostList from "./PostList";
 import PostForm from "./PostForm";
-import PostDetails from "./PostDetails";
+// import PostDetails from "./PostDetails";
 
 const ApplicationViews = () => {
 
