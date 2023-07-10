@@ -2,6 +2,7 @@ import { Routes, Route, Navigate} from "react-router-dom";
 import PostList from "./PostList";
 import PostForm from "./PostForm";
 import { PostDetails } from "./PostDetails";
+import UserPosts from "./UserPosts";
 
 const ApplicationViews = () => {
 
@@ -14,7 +15,7 @@ return (
 
         <Route path="/posts/:id" element={<PostDetails />} />
 
-        {/* <Route path="/users/:id" element={<UserPosts />} /> */}
+        <Route path="/users/:id" element={<UserPosts />} />
                         
         <Route path="*" element={<p>Whoops, nothing here...</p>} />
      
