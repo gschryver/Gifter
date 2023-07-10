@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 export const PostContext = React.createContext();
 
+export const getUserPosts = (id) => {
+  return fetch(`/api/UserProfile/${id}/posts`).then((res) => res.json());
+};
+
 export const getPostWithComments = (id) => {
   return fetch(`/api/post/${id}/with-comments`)
     .then((res) => res.json());
@@ -38,10 +42,8 @@ export const PostProvider = (props) => {
       .then(setPosts);
   }
 
-
-
   return (
-    <PostContext.Provider value={{ posts, getAllPosts, addPost, searchPosts, getAllPostsWithComments, getPostWithComments }}>
+    <PostContext.Provider value={{ posts, getAllPosts, addPost, searchPosts, getAllPostsWithComments, getPostWithComments, getUserPosts }}>
       {props.children}
     </PostContext.Provider>
   );
